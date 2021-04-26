@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=1,user-scalable=no"
+    />
+    <title>ArcGIS JSAPI - Load GPX into 3D</title>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      #infoDiv {
+        padding: 10px;
+        text-align: left;
+        width: 300px;
+      }
+
+      #slides {
+        display: flex;
+        position: absolute;
+        bottom: 22px;
+        left: 0;
+        right: 0;
+        padding: 6px;
+        height: 218px;
+        background-color: rgba(0, 0, 0, 0.75);
+        overflow-x: scroll;
+      }
+
+      .slide {
+        width: 200px;
+        height: 200px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        text-align: center;
+        color: white;
+        text-shadow: 0 0 2px black;
+        margin: 0 3px 0 3px;
+        flex-shrink: 0;
+      }
+
+      .slide:hover {
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+
+      .esri-elevation-profile {
+        max-width: 80vw !important;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.19/esri/themes/light/main.css"
+    />
+    <link rel="stylesheet" href="./src/widgets/DropTarget.css" />
+    <script>
+      var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+      window.dojoConfig = {
+        packages: [
+          {
+            name: "src",
+            location: locationPath + "/src",
+          },
+          {
+            name: "togeojson",
+            location: locationPath + "/src",
+            main: "togeojson.umd",
+          },
+        ],
+      };
+    </script>
+    <script src="https://js.arcgis.com/4.19"></script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+    <div id="infoDiv" class="esri-widget">
+        <b>Instructions</b></br>
+        Drag & Drop a GPX-File into the view.</br>  
+        The following panel will appear:</br>
+        <img src="./src/img/drag-and-drop.png" width="280">
+        You can add multiple GPX-Files.
+    </div>
+    <div id="slides"></div>
+    <script>
+      require(["src/main"]);
+    </script>
+  </body>
+</html>
