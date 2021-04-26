@@ -1,0 +1,5 @@
+node_modules/*
+.vscode/*
+src/*.js*
+src/widgets/*.js*
+src/utils/*.js*
