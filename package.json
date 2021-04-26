@@ -10,7 +10,7 @@
     "dev": "tsc -w",
     "build": "tsc && npm run buildcopy",
     "lint": "tslint './src/*.ts'",
-    "buildcopy": "cpy \"./node_modules/@tmcw/togeojson/dist/togeojson.umd.js\" src && cpy \"./**/*.html\" \"./**/*.css\" \"./**/*.js\" \"!./node_modules\" build --parents"
+    "buildcopy": "cpy \"./node_modules/@tmcw/togeojson/dist/togeojson.umd.js\" src && cpy \"./**/*.png\" \"./**/*.html\" \"./**/*.css\" \"./**/*.js\" \"!./node_modules\" build --parents"
   },
   "keywords": [
     "esri",
